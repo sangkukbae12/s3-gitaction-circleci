@@ -7,7 +7,7 @@ custom:
     bucketPolicyFile: config/bucket-policy.json
 
 service: serverless-s3
-fromworkVersion: '2'
+frameworkVersion: '2'
 
 provider:
   name: aws
