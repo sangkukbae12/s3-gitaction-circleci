@@ -1,0 +1,34 @@
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@1.0.0
+  serverless: circleci/serverless-framework@1.0.1
+  node: circleci/node@4.1.0
+
+jobs:
+  deploy:
+    executor: serverless/default
+    steps:
+      - checkout
+      - node/install-yarn
+      - run:
+          name: install
+          command: yarn install
+      - run:
+          name: build
+          command: yarn build
+      - aws-cli/setup
+      - serverless/setup:
+          app-name: serverless-framework-orb
+          org-name: circleci
+      - run:
+          name: deploy
+          command: serverless client deploy --region ap-northeast-2 --no-confirm
+workflows:
+  deploy:
+    jobs:
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
