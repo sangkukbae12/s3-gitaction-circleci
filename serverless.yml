@@ -1,6 +1,6 @@
 custom:
   client:
-    bucketName: serverless-s3-sample
+    bucketName: serverless-s3-sample1
     distributionFolder: build
     indexDocument: index.html
     errorDocument: index.html
