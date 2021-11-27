@@ -1,3 +1,11 @@
+custom:
+  client:
+    bucketName: serverless-s3-sample
+    distributionFolder: build
+    indexDocument: index.html
+    errorDocument: index.html
+    bucketPolicyFile: config/bucket-policy.json
+
 service: serverless-s3
 fromworkVersion: '2'
 
@@ -7,11 +15,3 @@ provider:
 
 plugins:
   - serverless-finch
-
-custom:
-  client:
-    bucketName: serverless-s3-sample
-    distributionFolder: build
-    indexDocument: index.html
-    errorDocument: index.html
-    bucketPolicyFile: config/bucket-policy.json
